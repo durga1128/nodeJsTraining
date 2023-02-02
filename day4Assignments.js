@@ -25,8 +25,7 @@ fs.copyFile("Day4TestFile.txt","./Files/Day4TestFile.txt",(err) =>
 
 
 /* 2. Clone a directory and its child files */
-var srcDir="./";
-var destDir="./";
+var srcDir="./Files";
 fs.mkdir(path.join(srcDir + 'copy'), (err)=>
 {
     if(err)
@@ -36,6 +35,7 @@ fs.mkdir(path.join(srcDir + 'copy'), (err)=>
     else
     {
         console.log("Source Directory created")
+        var destDir= srcDir + 'copy';
         fs.cp(srcDir,destDir, { recursive : true }, (err) =>
     {
     if(err)
@@ -45,6 +45,7 @@ fs.mkdir(path.join(srcDir + 'copy'), (err)=>
     else
     {
         console.log("Directory copied Successfully")
+        return destDir;
     }
     })
     }
